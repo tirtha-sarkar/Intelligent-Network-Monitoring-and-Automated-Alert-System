@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IntelligentNetworkMonitoringAndAutomatedAlertSystem" default="jar" basedir=".">
+    <description>Intelligent Network Monitoring and Automated Alert System</description>
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="main.class" value="inmas.NetworkMonitorApp"/>
+
+    <target name="-init">
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="-init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"
+               source="17" target="17" encoding="UTF-8"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar jarfile="${dist.dir}/IntelligentNetworkMonitoringAndAutomatedAlertSystem.jar"
+             basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="${main.class}" fork="true">
+            <classpath><pathelement path="${classes.dir}"/></classpath>
+        </java>
+    </target>
+</project>
