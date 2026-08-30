@@ -40,6 +40,7 @@ Click `Start Monitoring`. The dashboard will begin checking the default hosts.
 Use `Add Host` to monitor another host and TCP port.
 Select a row and use `Remove` to remove a host.
 Use `Export CSV` to save the latest monitoring report.
+<img width="1487" height="932" alt="image" src="https://github.com/user-attachments/assets/b64840f0-1a48-4371-a1fe-79a281b6a39b" />
 
 ## Architecture
 - `NetworkMonitorApp` - application entry point
